@@ -1,49 +1,53 @@
-/*Animate the logo with keyframes.  (Here is a keyframes reference.) 
-It should start at a width of 25px and grow to 475px.  
-It should also start with an opacity of 0 and end with an opacity of 
-1. The animation should take 5 seconds and only happen when the page is loaded. 
-**You can complete this step later in the process - it won’t affect the larger views. */
+/*Animate the logo with keyframes. The animation start at a width of 25px and grow to 475px.  
+It also start with an opacity of 0 and end with an opacity of 1. */
 @keyframes mymove {
-    from {opacity: 0;}
-    to {opacity: 1;}
     from {width: 25px;}
     to {width: 475px;}
-   
-  }
-/*what should i do to make it only happen when page is loaded*/
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/*The animation take 5 seconds. */
 #logo {
     animation-name: mymove;
     animation-duration: 5s;
 }
 
- 
+/*The body element use the Poppins font with serif as a backup.  
+It also use the image “concrete_seamless.png” from a folder named "images" as a background-image.
+It uses a backup color of #f1f1f1.*/ 
 body {
     font-family: "Poppins", serif;
     background-image: url("../images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
 
+/*Use flex-direction: column to make logo stack on nav*/
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/*Use flex-direction: column to make the three links distributed vertically.
+  Use justify-content: center to center the three links.*/
 .nav_links {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-
+/*Since the original color is blue, use pseudo class :visited to make visited links have the same color.*/
 a:visited { 
     color: blue;
 }
 
+
 .card {
     border-radius: 50px 50px 0px 0px;
 }
-/*not sure about it*/
+
+/*use > to select direct children header of care class. */
 .card > header {
     background: #288088;
     border: solid 2px #45ADAD;
@@ -52,13 +56,10 @@ a:visited {
     border-radius: 50px 50px 0px 0px;
 }
 
-/*Edit the css for the card class to match our example. 
-Achieve this by using a flex-property to specify an initial “size” of 450px.  
-You need to think about this from a “flex” perspective and realize that flex-direction will affect 
-the size of the elements.  You can see that in the mobile view they all have the same width. 
-
-Edit the css for the pricing class to match our example. 
-You should use flex and the cards should be centered both horizontally and vertically.
+/*
+.Pricing is the flex container.
+Justify-content:center centers cards horizontally. Align-items:center centers cards vertically.
+Use flex-wrap:wrap to put cards into multiple lines.
 */
 
 .pricing {
@@ -68,39 +69,30 @@ You should use flex and the cards should be centered both horizontally and verti
     flex-wrap: wrap;
 }
 
+/*Use flex-basis to specify an initial “size” of 450px.*/
 .card {
     flex-basis: 450px;
-    flex-direction: column;
 }
 
-
-/*Style the images in the gallery class. 
-These elements will have a solid 10px border with a color of #50C7C7, 10px margin on all four sides and a width of 300px.  
-
-Edit the css for the gallery class to use flex to match our example. 
-(You may want to look at the screen shots from 1200px and 1500px as well -  
-the changes are not from media queries, but from the use of flex.)
-*/
-
-
+/*Set border, margin and width of images in gallery class.*/
 .gallery img{
     border: solid 10px #50C7C7;
     margin: 10px;
     width: 300px;
 }
 
+/*Justify-content:center centers cards horizontally. 
+Use flex-wrap:wrap to put images into multiple lines.*/
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-
-/*Edit the css for the header tag (all instances) and the nav_links class to 
-match our example using flex-properties. 
-The logo should be as far to the left as
- possible and the links as far to the right as possible. Use flex properties, NOT position properties.*/
-
+/*Media Query*/
+/*Use width: 100% to make it take up the width of the whole screen.
+Use flex-direction: row in header to make logo and links on a same line, also use it in .nav_links to make three links also on the same line.
+Use justify-content: space-between to make the logo as far to the left as ossible and the links as far to the right as possible.*/
  @media screen and (min-width: 900px) {
     header {
         flex-direction: row;
@@ -112,80 +104,66 @@ The logo should be as far to the left as
         flex-direction: row;
         justify-content: space-between;
     }
-    /*Edit the css for the pricing and card classes to match our example. 
-    Part of achieving this is by using a flex-property to specify a “size” of 275px. 
-    Notice that the elements do not have the same height, but do have the same width.*/
 
-        /*what should i put in .pricing?*/
-    /*.pricing {
-
-    }*/
-
+    /*Use flex-basis: 275px; to specify a “size” of 275px.*/
     .card {
         flex-basis: 275px;
     }
-    /*Modify the first header (the one not inside main) so that it remains visible at the top of
-     the screen even as we scroll down. Make sure that it is always visible. 
-     You can see an example of this in the video and in the screenshot at 1200px when scrolled*(image updated 2/21/23). 
-     This is a challenge problem. You should not give or receive help when completing it.*/
+    /*The first header is the only direct child of body, so I use body > header.
+     Use position: sticky to make it stick at top when scrolling down.*/
      body > header {
         position: sticky;
         top: 0;
-        
      }
   }
 
-    /*The logo class should appear but not be animated 
-    if prefers-reduced-motion is selected in the accessibility preferences. */
+    /*if prefers-reduced-motion is selected in the accessibility preferences, 
+    use animation: none to make the animation not show.*/
   @media screen and (prefers-reduced-motion: reduce) { 
     #logo {
         animation: none;
     }
   }
 
+  /*Media Query*/
   @media print {
-   
-/*Edit the nav/nav_links elements so that they are spaced according to the image above.
-*/
+    /*Use background-image: none to make the background show as the backup color.*/
     body {
         font-family: Arial, Helvetica;
         background-image: none;
     }
+
     nav {
         width: 100%;
     }
-    
+
+    /*Use justify-content: space-evenly to make the links evenly spaced.*/
     .nav_links {
         justify-content: space-evenly;
         flex-direction: row;
     }
-    /*
 
-Edit the pricing class so that the elements align along the bottom.  As long as it aligns along the bottom we don't care if the cards aren't the same height.
-
-
-The card elements should have a solid border 2px of #45ADDD and use flex-basis of 325px. 
-
-
-No part of the gallery should be visible.
-*/
+    /*Use align-items: flex-end in the pricing class to make the elements vertically align along the bottom since default value of flex-direction is row.*/
     .pricing  {
         align-items: flex-end;
         flex-wrap: nowrap;
     }
+
     .card {
         border: solid 2px #45ADDD;
         border-radius: 50px 50px 0px 0px;
         flex-basis: 325px;
         
     }
+
+    /*Use display: none to make both the gallery heading and gallery class not visible.*/
     .gallery, #gallery{
         display: none;
     }
-    /*Without using list-style-type add the thumbs up entity as shown in the cards. 
-    This is a challenge problem. You should not give or receive help when completing it.
-    **For some people the thumbs up is not printing as yellow. That is fine.
-*/
+
+    /*Use pseudo class:nth-child(2) to select li's second child. 
+    Use pesudo element ::afterput a thumb emoji after it add the thumbs up entity as shown in the cards. 
+    Add main at the beginning so that the second link in header would not be selected.*/
     main li:nth-child(2)::after {
         content: "👍";
     }
