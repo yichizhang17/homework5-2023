@@ -40,6 +40,9 @@ a:visited {
     color: blue;
 }
 
+.card {
+    border-radius: 50px 50px 0px 0px;
+}
 /*not sure about it*/
 .card > header {
     background: #288088;
