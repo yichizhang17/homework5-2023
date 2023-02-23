@@ -19,7 +19,7 @@ It should also start with an opacity of 0 and end with an opacity of
  
 body {
     font-family: "Poppins", serif;
-    background-image: url("concrete_seamless.png");
+    background-image: url("../images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
 
