@@ -129,7 +129,7 @@ The logo should be as far to the left as
      You can see an example of this in the video and in the screenshot at 1200px when scrolled*(image updated 2/21/23). 
      This is a challenge problem. You should not give or receive help when completing it.*/
      body > header {
-        position: fixed;
+        position: sticky;
         top: 0;
         
      }
