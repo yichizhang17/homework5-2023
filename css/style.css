@@ -66,9 +66,9 @@ Use flex-wrap:wrap to put cards into multiple lines.
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
     flex-wrap: wrap;
 }
-
 /*Use flex-basis to specify an initial “size” of 450px.*/
 .card {
     flex-basis: 450px;
@@ -85,6 +85,7 @@ Use flex-wrap:wrap to put cards into multiple lines.
 Use flex-wrap:wrap to put images into multiple lines.*/
 .gallery {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -103,6 +104,14 @@ Use justify-content: space-between to make the logo as far to the left as ossibl
     .nav_links {
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    .pricing {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
     }
 
     /*Use flex-basis: 275px; to specify a “size” of 275px.*/
@@ -143,10 +152,11 @@ Use justify-content: space-between to make the logo as far to the left as ossibl
         flex-direction: row;
     }
 
-    /*Use align-items: flex-end in the pricing class to make the elements vertically align along the bottom since default value of flex-direction is row.*/
+    /*Use align-items: flex-end in the pricing class to make the elements vertically align along the bottom since value of flex-direction is row.*/
     .pricing  {
         align-items: flex-end;
         flex-wrap: nowrap;
+        flex-direction: row;
     }
 
     .card {
