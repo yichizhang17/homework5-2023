@@ -26,6 +26,7 @@ body {
 header {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
 }
 
@@ -34,6 +35,7 @@ header {
 .nav_links {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 
